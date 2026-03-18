@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  askmeanything:
+    build: .
+    container_name: htb-askmeanything
+    ports:
+      - "1337:5000"
+    environment:
+      - FLAG=HTB{askm34nyth1ng_r34l1st1c_v2_4ppr0v3d}
+    restart: unless-stopped
+    # LM Studio runs on host, accessible via host.docker.internal:1234
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
